@@ -1,3 +1,4 @@
+#first 
 print("Hello welcome to tax calcu ver 2566")
 all_income=int(input("Please input your yearly income :"))
 
