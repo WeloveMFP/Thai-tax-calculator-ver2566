@@ -150,8 +150,8 @@ cal_income = all_income - 60000 - del_wife - del_children - del_birth - del_pare
 
 #ลดบริจาคทั่วไป
 donate = int(input("How much did you donated in this year :"))
-if donate >= cal_income*1/10:
-    cal_donate = cal_income*1/10
+if donate >= cal_income * 1/10:
+    cal_donate = cal_income * 1/10
 else:
     cal_donate = donate
 
