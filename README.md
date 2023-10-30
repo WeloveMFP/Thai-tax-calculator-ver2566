@@ -5,6 +5,7 @@ This project help Thai people to calculate the Tax from goverment. It calculate 
 just run ```find_sum_income.py```
 
 ## Our issue
+[ x ] Matching
 We test it but the project didn't work as well. It doesn't match the real one.
 
 ## Contribute
