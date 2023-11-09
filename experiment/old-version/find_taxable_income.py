@@ -7,7 +7,7 @@ wife = int(input("Do you have lawful wife? If you have, press 1. If you don't ha
 if wife == 1 :
     del_wife = 60000
 else:
-    del_wife=0
+    del_wife = 0
 
 #ลดหย่อนลูก
 children = int(input("How many children do you have (under 20 years old):"))
