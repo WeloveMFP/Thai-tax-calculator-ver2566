@@ -1,6 +1,6 @@
 def calculate_personal_income_tax(income):
     # Tax rate thresholds and rates for 2023 (Thai tax year)
-    tax_thresholds = [0, 150000, 300000, 500000, 750000, 1000000, 2000000, 4000000]
+    tax_thresholds = [0, 150000, 300000, 500000, 750000, 1000000, 2000000, 5000000, 18446744073709551615]
     tax_rates = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35]
 
     # Calculate tax
