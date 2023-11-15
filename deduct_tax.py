@@ -73,21 +73,20 @@ if parent_insurance >= 15000:
 else:
       del_parent_insurance = parent_insurance
 
-# #ลดประกันชีวิตบำนาญ
-# pension_insurance = int(input("How much is your yearly pension life insurance :"))
-# if del_insurance == 0 :
-#     cal_pension_insurance = all_income*15/100
-#     if cal_pension_insurance >= 300000:
-#         del_pension_insurance = 300000
-#     else:
-#          del_pension_insurance = cal_pension_insurance
-# else:
-#       cal_pension_insurance = all_income*15/100
-#       if cal_pension_insurance >= 200000:
-#         del_pension_insurance = 200000
-#       else:
-#          del_pension_insurance = cal_pension_insurance
-
+#ลดประกันชีวิตบำนาญ (Problem here)
+pension_insurance = int(input("How much is your yearly pension life insurance :"))
+cal_pension_insurance = all_income*15/100
+if del_insurance == 0 :
+     if cal_pension_insurance >= 300000:
+         del_pension_insurance = 300000
+     else:
+          del_pension_insurance = cal_pension_insurance
+else:
+     if cal_pension_insurance >= 200000:
+         del_pension_insurance = 200000
+     else:
+         del_pension_insurance = cal_pension_insurance
+print(all_income-del_pension_insurance)
 # #ลดกองทุนออมแห่งชาติ 
 # national_saving_fund = int(input("How much is your yearly National Saving Fund :"))
 # if national_saving_fund>=13200:
