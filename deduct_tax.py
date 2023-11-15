@@ -48,23 +48,16 @@ else:
 #ลดประกันชีวิต
 life_insurance = int(input("How much is your yearly life insurance :"))
 if life_insurance >= 100000:
-     cal_life_insurance = 100000
+     del_life_insurance = 100000
 else:
-     cal_life_insurance = life_insurance
+     del_life_insurance = life_insurance
 
 #ลดประกันสุขภาพ
 health_insurance = int(input("How much is your yearly health insurance :"))
 if health_insurance >= 25000:
-     cal_health_insurance = 25000
+     del_health_insurance = 25000
 else:
-     cal_health_insurance = health_insurance
-
-#คำนวณประกันชีวิต/สุขภาพ
-cal_insurance = cal_life_insurance + cal_health_insurance
-if cal_insurance >= 100000:
-     del_insurance = 100000
-else:
-     del_insurance = cal_insurance
+     del_health_insurance = health_insurance
 
 #ลดประกันพ่อแม่
 parent_insurance = int(input("How much is your parent's yearly health insurance :"))
@@ -73,20 +66,13 @@ if parent_insurance >= 15000:
 else:
       del_parent_insurance = parent_insurance
 
-#ลดประกันชีวิตบำนาญ (Problem here)
+#ลดประกันชีวิตบำนาญ 
 pension_insurance = int(input("How much is your yearly pension life insurance :"))
-cal_pension_insurance = all_income*15/100
-if del_insurance == 0 :
-     if cal_pension_insurance >= 300000:
-         del_pension_insurance = 300000
-     else:
-          del_pension_insurance = cal_pension_insurance
+if pension_insurance >= 200000 :
+     del_pension_insurance = 200000
 else:
-     if cal_pension_insurance >= 200000:
-         del_pension_insurance = 200000
-     else:
-         del_pension_insurance = cal_pension_insurance
-print(all_income-del_pension_insurance)
+    del_pension_insurance = pension_insurance
+
 # #ลดกองทุนออมแห่งชาติ 
 # national_saving_fund = int(input("How much is your yearly National Saving Fund :"))
 # if national_saving_fund>=13200:
