@@ -73,19 +73,19 @@ if pension_insurance >= 200000 :
 else:
     del_pension_insurance = pension_insurance
 
-# #ลดกองทุนออมแห่งชาติ 
-# national_saving_fund = int(input("How much is your yearly National Saving Fund :"))
-# if national_saving_fund>=13200:
-#      del_national_saving_fund= 13200
-# else:
-#      del_national_saving_fund = national_saving_fund
+#ลดกองทุนออมแห่งชาติ 
+national_saving_fund = int(input("How much is your yearly National Saving Fund :"))
+if national_saving_fund>=13200:
+      del_national_saving_fund= 13200
+else:
+      del_national_saving_fund = national_saving_fund
 
-# #ลดกองทุนเลี้ยงชีพ (ไม่เกิน 500k)
-# provident_fund = int(input("How much did you spent provident fund in this year (without from employer) :"))
-# if provident_fund >= all_income*15/100:
-#       cal_provident_fund = all_income*15/100
-# else:
-#       cal_provident_fund = provident_fund
+#ลดกองทุนเลี้ยงชีพ (ไม่เกิน 500k)
+provident_fund = int(input("How much did you spent provident fund in this year (without from employer) :"))
+if provident_fund >= all_income*15/100:
+       cal_provident_fund = all_income*15/100
+else:
+       cal_provident_fund = provident_fund
 
 # #ลดกองทุนบำเหน็จบำนาญข้าราชการ (ไม่เกิน 500k)
 # gov_pension_fund = int(input("How much is your yearly Government Pension Fund :"))
