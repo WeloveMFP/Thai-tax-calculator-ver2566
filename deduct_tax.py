@@ -87,66 +87,65 @@ if provident_fund >= all_income*15/100:
 else:
        cal_provident_fund = provident_fund
 
-# #ลดกองทุนบำเหน็จบำนาญข้าราชการ (ไม่เกิน 500k)
-# gov_pension_fund = int(input("How much is your yearly Government Pension Fund :"))
-# if gov_pension_fund>=all_income*15/100:
-#      cal_gov_pension_fund= all_income*15/100
-# else:
-#      cal_gov_pension_fund = gov_pension_fund
+#ลดกองทุนบำเหน็จบำนาญข้าราชการ (ไม่เกิน 500k)
+gov_pension_fund = int(input("How much is your yearly Government Pension Fund :"))
+if gov_pension_fund>=all_income*15/100:
+      cal_gov_pension_fund= all_income*15/100
+else:
+      cal_gov_pension_fund = gov_pension_fund
 
-# #ลดกองทุนครูเอกชน(ไม่เกิน 500k)
-# private_teacher_aid_fund = int(input("How much is your yearly private teacher aid fund :"))
-# if private_teacher_aid_fund >= all_income*15/100:
-#      cal_private_teacher_aid_fund = all_income*15/100
-# else:
-#      cal_private_teacher_aid_fund = private_teacher_aid_fund
+#ลดกองทุนครูเอกชน(ไม่เกิน 500k)
+private_teacher_aid_fund = int(input("How much is your yearly private teacher aid fund :"))
+if private_teacher_aid_fund >= all_income*15/100:
+      cal_private_teacher_aid_fund = all_income*15/100
+else:
+      cal_private_teacher_aid_fund = private_teacher_aid_fund
 
-# #ลดไม่เกิน 500K
-# cal_500k = cal_provident_fund + cal_gov_pension_fund + cal_private_teacher_aid_fund
-# if cal_500k >= 500000:
-#      del_500k = 500000
-# else:
-#      del_500k = cal_500k
+#ลดไม่เกิน 500K
+cal_500k = cal_provident_fund + cal_gov_pension_fund + cal_private_teacher_aid_fund
+if cal_500k >= 500000:
+      del_500k = 500000
+else:
+      del_500k = cal_500k
 
-# #ลด RMF
-# rmf = int(input("How much is your yearly RMF :"))
-# if rmf >= all_income*3/10:
-#      cal_RMF = all_income*3/10
-# else:
-#      cal_RMF = rmf
-# if cal_RMF >= 500000:
-#      del_RMF = 500000
-# else:
-#      del_RMF = cal_RMF
+#ลด RMF
+rmf = int(input("How much is your yearly RMF :"))
+if rmf >= all_income*3/10:
+      cal_RMF = all_income*3/10
+else:
+      cal_RMF = rmf
+if cal_RMF >= 500000:
+      del_RMF = 500000
+else:
+      del_RMF = cal_RMF
 
-# #ลด SSF
-# ssf = int(input("How much is your yearly SSF :"))
-# if ssf >= all_income*3/10:
-#      cal_SSF = all_income*3/10
-# else:
-#      cal_SSF = ssf
-# if cal_SSF >= 200000:
-#      del_SSF = 200000
-# else:
-#      del_SSF = cal_SSF
+#ลด SSF
+ssf = int(input("How much is your yearly SSF :"))
+if ssf >= all_income*3/10:
+      cal_SSF = all_income*3/10
+else:
+      cal_SSF = ssf
+if cal_SSF >= 200000:
+      del_SSF = 200000
+else:
+      del_SSF = cal_SSF
 
-# #คำนวณเงินได้หลังลดหย่อน
-# cal_income = (((((((((((((((all_income - 60000 )- del_wife )- del_children )- del_birth )- del_parent )- del_disable )- del_house )- del_insurance )- del_parent_insurance )- del_pension_insurance )- del_national_saving_fund )- del_500k )- del_RMF )- del_SSF )- del_socialsec)
+#คำนวณเงินได้หลังลดหย่อน
+cal_income = ((((((((((((((((all_income - 60000 )- del_wife )- del_children )- del_birth )- del_parent )- del_disable )- del_house )- del_life_insurance)-del_health_insurance )- del_parent_insurance )- del_pension_insurance )- del_national_saving_fund )- del_500k )- del_RMF )- del_SSF )- del_socialsec)
 
-# #ลดบริจาคทั่วไป
-# donate = int(input("How much did you donated in this year :"))
-# if donate >= cal_income * 1/10:
-#      cal_donate = cal_income * 1/10
-# else:
-#      cal_donate = donate
+#ลดบริจาคทั่วไป
+donate = int(input("How much did you donated in this year :"))
+if donate >= cal_income * 1/10:
+      cal_donate = cal_income * 1/10
+else:
+      cal_donate = donate
 
-# #บริจาคพรรค
-# political_donate = int(input("How much did you donated to any Thai political party in this year :"))
-# if political_donate >= 10000:
-#      cal_political_donate = 10000
-# else:
-#      cal_political_donate = political_donate
+#บริจาคพรรค
+political_donate = int(input("How much did you donated to any Thai political party in this year :"))
+if political_donate >= 10000:
+      cal_political_donate = 10000
+else:
+      cal_political_donate = political_donate
 
-# #หาเงินได้สุทธิ
-# sum_income = cal_income - cal_donate - cal_political_donate
-# print(sum_income)
+#หาเงินได้สุทธิ
+sum_income = cal_income - cal_donate - cal_political_donate
