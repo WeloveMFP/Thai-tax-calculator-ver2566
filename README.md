@@ -2,7 +2,7 @@
 This project help Thai people to calculate the Tax from goverment. It calculate all of it.
 
 ## How to use
-just run ```find_sum_income.py```
+just run ```deduct_tax.py```
 
 ## Our issue
 Don't have but you can open a issue
