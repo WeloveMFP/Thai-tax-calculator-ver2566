@@ -1,6 +1,9 @@
 #first 
-print("Hello welcome to tax calcu ver 2566")
-all_income=int(input("Please input your yearly income :"))
+print("Hello welcome to CRU SMART tax calculator ver 2566")
+all_income=int(input("Please input your monthly income :"))
+all_income*=12
+all_income+=int(input("Please input your bonus this year :"))
+print(all_income)
 
 #ลดหย่อนเมีย
 wife = int(input("Do you have lawful wife? If you have, press 1. If you don't have, press 0 :"))
