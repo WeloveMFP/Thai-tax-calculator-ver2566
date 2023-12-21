@@ -1,6 +1,8 @@
 #first 
-print("Hello welcome to tax calcu ver 2566")
-all_income=int(input("Please input your yearly income :"))
+print("Hello welcome to CRU SMART tax calculator ver 2566")
+all_income=int(input("Please input your monthly income :"))
+all_income*=12
+all_income+=int(input("Please input your bonus this year :"))
 
 #ลดหย่อนเมีย
 wife = int(input("Do you have lawful wife? If you have, press 1. If you don't have, press 0 :"))
@@ -11,7 +13,14 @@ else:
 
 # #ลดหย่อนลูก
 children = int(input("How many children do you have (under 20 years old):"))
-del_children = children*30000
+if children > 0:
+ if children >= 2:
+     cal_children = (children-1)*60000
+ else:
+     cal_children=0
+ del_children = 30000+cal_children
+else:
+     del_children = 0
 
 #ลดหย่อนค่าฝากครรภ์และทำคลอด
 birth = int(input("How much did you spent on prenatal care and delivery cost in this year :"))
