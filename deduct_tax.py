@@ -82,6 +82,24 @@ if parent_insurance >= 15000:
 else:
       del_parent_insurance = parent_insurance
 
+#ลดลงทุน social enterprise
+social_enterprise = int(input("How much did you invest in social enterprise in this year :"))
+if social_enterprise >= 100000:
+     del_socialenterprise = 100000
+else :
+     del_socialenterprise = social_enterprise
+
+#ลดกองทุนไทยเพื่อความยั่งยืน
+Thai_ESG = int(input("How much is your yearly Thai ESG :"))
+if Thai_ESG >=all_income*3/10:
+      cal_thai_esg= all_income*3/10
+else:
+      cal_thai_esg = Thai_ESG
+if cal_thai_esg >= 100000:
+     del_thai_esg = 100000
+else:
+     del_thai_esg = cal_thai_esg
+
 #ลดประกันชีวิตบำนาญ (ไม่เกิน 500k)
 pension_insurance = int(input("How much is your yearly pension life insurance :"))
 if pension_insurance >= all_income*15/100:
@@ -163,7 +181,7 @@ else:
       del_500k = cal_500k
 
 #คำนวณเงินได้หลังลดหย่อน
-cal_income = (((((((((((all_income - 60000 )- del_wife )- del_children )- del_birth )- del_parent )- del_disable )- del_house )- del_insurance)- del_parent_insurance )- del_500k )- del_socialsec)
+cal_income = (((((((((((((all_income - 60000 )- del_wife )- del_children )- del_birth )- del_parent )- del_disable )- del_house )- del_insurance)- del_parent_insurance )- del_500k )- del_socialsec) -del_socialenterprise) -del_thai_esg)
 
 #ลดบริจาคทั่วไป
 donate = int(input("How much did you donated in this year :"))
