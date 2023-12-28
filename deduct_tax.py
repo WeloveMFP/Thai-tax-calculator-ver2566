@@ -42,8 +42,8 @@ else:
 
 #ลดประกันสังคม
 social_sec = int(input("How much did you spent social security in this year :"))
-if social_sec >= 6300:
-     del_socialsec = 6300
+if social_sec >= 9000:
+     del_socialsec = 9000
 else :
      del_socialsec = social_sec
 
@@ -57,16 +57,23 @@ else:
 #ลดประกันชีวิต
 life_insurance = int(input("How much is your yearly life insurance :"))
 if life_insurance >= 100000:
-     del_life_insurance = 100000
+     cal_life_insurance = 100000
 else:
-     del_life_insurance = life_insurance
+     cal_life_insurance = life_insurance
 
 #ลดประกันสุขภาพ
 health_insurance = int(input("How much is your yearly health insurance :"))
 if health_insurance >= 25000:
-     del_health_insurance = 25000
+     cal_health_insurance = 25000
 else:
-     del_health_insurance = health_insurance
+     cal_health_insurance = health_insurance
+
+#ประกันไม่เกิน 100k
+cal_insurance = cal_life_insurance+cal_health_insurance
+if cal_insurance >= 100000:
+     del_insurance = 100000
+else:
+     del_insurance = cal_insurance
 
 #ลดประกันพ่อแม่
 parent_insurance = int(input("How much is your parent's yearly health insurance :"))
@@ -75,49 +82,58 @@ if parent_insurance >= 15000:
 else:
       del_parent_insurance = parent_insurance
 
-#ลดประกันชีวิตบำนาญ 
+#ลดประกันชีวิตบำนาญ (ไม่เกิน 500k)
 pension_insurance = int(input("How much is your yearly pension life insurance :"))
-if pension_insurance >= 200000 :
-     del_pension_insurance = 200000
+if pension_insurance >= all_income*15/100:
+      calx_pension_insurance = all_income*15/100
 else:
-    del_pension_insurance = pension_insurance
+      calx_pension_insurance = pension_insurance
+if calx_pension_insurance >= 200000 :
+     cal_pension_insurance = 200000
+else:
+     cal_pension_insurance = calx_pension_insurance
 
-#ลดกองทุนออมแห่งชาติ 
+#ลดกองทุนออมแห่งชาติ (ไม่เกิน 500k)
 national_saving_fund = int(input("How much is your yearly National Saving Fund :"))
-if national_saving_fund>=13200:
-      del_national_saving_fund= 13200
+if national_saving_fund>=30000:
+      cal_national_saving_fund= 30000
 else:
-      del_national_saving_fund = national_saving_fund
+      cal_national_saving_fund = national_saving_fund
 
 #ลดกองทุนเลี้ยงชีพ (ไม่เกิน 500k)
 provident_fund = int(input("How much did you spent provident fund in this year (without from employer) :"))
 if provident_fund >= all_income*15/100:
-       cal_provident_fund = all_income*15/100
+      calx_provident_fund = all_income*15/100
 else:
-       cal_provident_fund = provident_fund
+      calx_provident_fund = provident_fund
+if calx_provident_fund >= 500000:
+      cal_provident_fund = 500000
+else:
+      cal_provident_fund = calx_provident_fund
 
 #ลดกองทุนบำเหน็จบำนาญข้าราชการ (ไม่เกิน 500k)
 gov_pension_fund = int(input("How much is your yearly Government Pension Fund :"))
-if gov_pension_fund>=all_income*15/100:
-      cal_gov_pension_fund= all_income*15/100
+if gov_pension_fund>=all_income*3/10:
+      calx_gov_pension_fund= all_income*3/10
 else:
-      cal_gov_pension_fund = gov_pension_fund
+      calx_gov_pension_fund = gov_pension_fund
+if calx_gov_pension_fund >= 500000:
+      cal_gov_pension_fund = 500000
+else:
+      cal_gov_pension_fund = calx_gov_pension_fund
 
 #ลดกองทุนครูเอกชน(ไม่เกิน 500k)
 private_teacher_aid_fund = int(input("How much is your yearly private teacher aid fund :"))
 if private_teacher_aid_fund >= all_income*15/100:
-      cal_private_teacher_aid_fund = all_income*15/100
+      calx_private_teacher_aid_fund = all_income*15/100
 else:
-      cal_private_teacher_aid_fund = private_teacher_aid_fund
-
-#ลดไม่เกิน 500K
-cal_500k = cal_provident_fund + cal_gov_pension_fund + cal_private_teacher_aid_fund
-if cal_500k >= 500000:
-      del_500k = 500000
+      calx_private_teacher_aid_fund = private_teacher_aid_fund
+if calx_private_teacher_aid_fund >= 500000:
+      cal_private_teacher_aid_fund = 500000
 else:
-      del_500k = cal_500k
+      cal_private_teacher_aid_fund = calx_private_teacher_aid_fund
 
-#ลด RMF
+#ลด RMF (ไม่เกิน 500k)
 rmf = int(input("How much is your yearly RMF :"))
 if rmf >= all_income*3/10:
       cal_RMF = all_income*3/10
@@ -128,7 +144,7 @@ if cal_RMF >= 500000:
 else:
       del_RMF = cal_RMF
 
-#ลด SSF
+#ลด SSF (ไม่เกิน 500k)
 ssf = int(input("How much is your yearly SSF :"))
 if ssf >= all_income*3/10:
       cal_SSF = all_income*3/10
@@ -139,8 +155,15 @@ if cal_SSF >= 200000:
 else:
       del_SSF = cal_SSF
 
+#ลดไม่เกิน 500K
+cal_500k = cal_provident_fund + cal_gov_pension_fund + cal_private_teacher_aid_fund + cal_pension_insurance +cal_national_saving_fund + del_SSF + del_RMF
+if cal_500k >= 500000:
+      del_500k = 500000
+else:
+      del_500k = cal_500k
+
 #คำนวณเงินได้หลังลดหย่อน
-cal_income = ((((((((((((((((all_income - 60000 )- del_wife )- del_children )- del_birth )- del_parent )- del_disable )- del_house )- del_life_insurance)-del_health_insurance )- del_parent_insurance )- del_pension_insurance )- del_national_saving_fund )- del_500k )- del_RMF )- del_SSF )- del_socialsec)
+cal_income = (((((((((((all_income - 60000 )- del_wife )- del_children )- del_birth )- del_parent )- del_disable )- del_house )- del_insurance)- del_parent_insurance )- del_500k )- del_socialsec)
 
 #ลดบริจาคทั่วไป
 donate = int(input("How much did you donated in this year :"))
