@@ -202,7 +202,6 @@ sum_income = cal_income - cal_donate - cal_political_donate
 
 #คำนวณภาษี
 
-
 def calculate_personal_income_tax(sum_income):
     # Tax rate thresholds and rates for 2023 (Thai tax year)
     tax_thresholds = [0, 150000, 300000, 500000, 750000, 1000000, 2000000, 5000000, 18446744073709551615]
