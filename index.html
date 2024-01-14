@@ -40,11 +40,11 @@
                 const income = parseFloat(document.getElementById("income").value);
 
                 if (isNaN(income) || income < 0) {
-                    throw new Error("Income must be a non-negative number. Ass up please");
+                    throw new Error("Income must be a non-negative number.");
                 }
 
                 const tax = calculateIncomeTax(income);
-                document.getElementById("result").innerHTML = `Your estimated personal income tax in Thailand: ${tax.toFixed(0)} Thai Baht`;
+                document.getElementById("result").innerHTML = `Your estimated personal income tax should be: ${tax.toFixed(0)} Thai Baht`;
 
             } catch (error) {
                 document.getElementById("result").innerHTML = `Error: ${error.message}`;
