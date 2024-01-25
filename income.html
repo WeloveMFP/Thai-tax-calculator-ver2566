@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Income Tax Calculator</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+
+        <header class="text-center bg-light p-4">
+            <h1>Thai Income Tax Calculator</h1>
+        </header>
+
+        <main class="p-4">
+            <label for="income">Enter your yearly income in Thai Baht</label>
+            <input type="number" id="income" class="form-control" placeholder="Enter your income" onkeydown="if(event.keyCode===13) calculateTax()" />
+            <button onclick="calculateTax()" class="btn btn-primary mt-3 d-block mx-auto">Calculate Tax</button>
+
+            <p id="result" class="mt-3"></p>
+        </main>
+
+        <footer class="text-center fixed-bottom bg-light p-2">
+            <p>&copy; 2023 Thai Income Tax Calculator<br>Make with powered of 🍺,☕ and 🧠</p>
+        </footer>
+
+    </div>
+    
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function calculateTax() {
+            try {
+                const income = parseFloat(document.getElementById("income").value);
+
+                if (isNaN(income) || income < 0) {
+                    throw new Error("Income must be a non-negative number.");
+                }
+
+                const tax = calculateIncomeTax(income);
+                document.getElementById("result").innerHTML = `Your estimated personal income tax should be: ${tax.toFixed(0)} Thai Baht`;
+
+            } catch (error) {
+                document.getElementById("result").innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        function calculateIncomeTax(income) {
+            const taxBrackets = [
+                { lower: 0, upper: 150000, rate: 0 },
+                { lower: 150001, upper: 300000, rate: 0.05 },
+                { lower: 300001, upper: 500000, rate: 0.1 },
+                { lower: 500001, upper: 750000, rate: 0.15 },
+                { lower: 750001, upper: 1000000, rate: 0.2 },
+                { lower: 1000001, upper: 2000000, rate: 0.25 },
+                { lower: 2000001, upper: 5000000, rate: 0.3 },
+                { lower: 5000001, upper: Infinity, rate: 0.35 }
+            ];
+
+            let remainingIncome = income;
+            let totalTax = 0;
+
+            for (const { lower, upper, rate } of taxBrackets) {
+                if (remainingIncome <= 0) {
+                    break;
+                }
+
+                const taxableIncome = Math.min(remainingIncome, upper - lower + 1);
+                const tax = taxableIncome * rate;
+                totalTax += tax;
+                remainingIncome -= taxableIncome;
+            }
+
+            return totalTax;
+        }
+    </script>
+
+</body>
+</html>
