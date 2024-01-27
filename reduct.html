@@ -1,211 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f8f8f8;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
 
-    h1 {
-      color: #333;
-    }
+        h1 {
+            color: #333;
+        }
 
-    form {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #333;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
 
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
-    }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
 
-    button {
-      background-color: #4caf50;
-      color: #fff;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-    button:hover {
-      background-color: #45a049;
-    }
+        button:hover {
+            background-color: #45a049;
+        }
 
-    #result {
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
-    }
-    .radio-group {
-        display: flex;
-        justify-content: start;
-    }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .radio-group {
+                display: flex;
+                justify-content: start;
+        }
 
-    .radio-option {
-        margin-right: 15px;
-    }
-  </style>
-  <title>Tax Deduction Calculator</title>
+        .radio-option {
+                margin-right: 15px;
+        }
+    </style>
+    <title>Tax Deduction Calculator</title>
 </head>
 <body>
 
 <h1>Tax Deduction Calculator</h1>
 
 <form id="deductionForm">
-  <label for="yearlyIncome">Please input your yearly income:</label>
-  <input type="number" id="yearlyIncome" name="yearlyIncome" required><br><br>  
+    <label for="yearlyIncome">Please input your yearly income:</label>
+    <input type="number" id="yearlyIncome" name="yearlyIncome" required><br><br>  
 
-  <label for="wife">Do you have a lawful wife?</label>
-  <select id="wife" name="wife">
-    <option value="1">Yes</option>
-    <option value="0">No</option>
-  </select><br><br>
+    <label for="wife">Do you have a lawful wife?</label>
+    <select id="wife" name="wife">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select><br><br>
 
-  <label for="children">How many children do you have (under 20 years old):</label>
-  <input type="number" id="children" name="children"><br><br>
+    <label for="children">How many children do you have (under 20 years old):</label>
+    <input type="number" id="children" name="children"><br><br>
 
-  <label for="birth">How much did you spend on prenatal care and delivery cost in this year:</label>
-  <input type="number" id="birth" name="birth"><br><br>
+    <label for="birth">How much did you spend on prenatal care and delivery cost in this year:</label>
+    <input type="number" id="birth" name="birth"><br><br>
 
-  <label for="parent">How many alive parents do you have (include your lawful wife's parents):</label>
-  <input type="number" id="parent" name="parent"><br><br>
+    <label for="parent">How many alive parents do you have (include your lawful wife's parents):</label>
+    <input type="number" id="parent" name="parent"><br><br>
 
-  <label for="disable">Are you disabled?</label>
-  <select id="disable" name="disable">
-    <option value="1">Yes</option>
-    <option value="0">No</option>
-  </select><br><br>
+    <label for="disable">Are you disabled?</label>
+    <select id="disable" name="disable">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select><br><br>
 
-  <label for="social_sec">Social security contributions:</label>
-  <input type="number" id="social_sec" name="social_sec"><br><br>
+    <label for="social_sec">Social security contributions:</label>
+    <input type="number" id="social_sec" name="social_sec"><br><br>
 
-  <label for="house_interest">Yearly interest on housing purchases:</label>
-  <input type="number" id="house_interest" name="house_interest"><br><br>
+    <label for="house_interest">Yearly interest on housing purchases:</label>
+    <input type="number" id="house_interest" name="house_interest"><br><br>
 
-  <label for="life_insurance">Yearly life insurance:</label>
-  <input type="number" id="life_insurance" name="life_insurance"><br><br>
+    <label for="life_insurance">Yearly life insurance:</label>
+    <input type="number" id="life_insurance" name="life_insurance"><br><br>
 
-  <label for="health_insurance">Yearly health insurance:</label>
-  <input type="number" id="health_insurance" name="health_insurance"><br><br>
+    <label for="health_insurance">Yearly health insurance:</label>
+    <input type="number" id="health_insurance" name="health_insurance"><br><br>
 
-  <label for="parent_insurance">Parent's health insurance:</label>
-  <input type="number" id="parent_insurance" name="parent_insurance"><br><br>
+    <label for="parent_insurance">Parent's health insurance:</label>
+    <input type="number" id="parent_insurance" name="parent_insurance"><br><br>
 
-  <label for="social_enterprise">Social enterprise investment:</label>
-  <input type="number" id="social_enterprise" name="social_enterprise"><br><br>
+    <label for="social_enterprise">Social enterprise investment:</label>
+    <input type="number" id="social_enterprise" name="social_enterprise"><br><br>
 
-  <label for="Thai_ESG">Yearly Thai ESG:</label>
-  <input type="number" id="Thai_ESG" name="Thai_ESG"><br><br>
+    <label for="Thai_ESG">Yearly Thai ESG:</label>
+    <input type="number" id="Thai_ESG" name="Thai_ESG"><br><br>
 
-  <label for="pensionInsurance">How much is your yearly pension life insurance:</label>
-  <input type="number" id="pensionInsurance" name="pensionInsurance"><br><br>
+    <label for="pensionInsurance">How much is your yearly pension life insurance:</label>
+    <input type="number" id="pensionInsurance" name="pensionInsurance"><br><br>
 
-  <label for="nationalSavingFund">How much is your yearly National Saving Fund:</label>
-  <input type="number" id="nationalSavingFund" name="nationalSavingFund"><br><br>
+    <label for="nationalSavingFund">How much is your yearly National Saving Fund:</label>
+    <input type="number" id="nationalSavingFund" name="nationalSavingFund"><br><br>
 
-  <label for="providentFund">How much did you spend on provident fund this year (without employer contribution):</label>
-  <input type="number" id="providentFund" name="providentFund"><br><br>
+    <label for="providentFund">How much did you spend on provident fund this year (without employer contribution):</label>
+    <input type="number" id="providentFund" name="providentFund"><br><br>
 
-  <label for="govPensionFund">How much is your yearly Government Pension Fund:</label>
-  <input type="number" id="govPensionFund" name="govPensionFund"><br><br>
+    <label for="govPensionFund">How much is your yearly Government Pension Fund:</label>
+    <input type="number" id="govPensionFund" name="govPensionFund"><br><br>
 
-  <label for="privateTeacherAidFund">How much is your yearly private teacher aid fund:</label>
-  <input type="number" id="privateTeacherAidFund" name="privateTeacherAidFund"><br><br>
+    <label for="privateTeacherAidFund">How much is your yearly private teacher aid fund:</label>
+    <input type="number" id="privateTeacherAidFund" name="privateTeacherAidFund"><br><br>
 
-  <label for="rmf">How much is your yearly RMF:</label>
-  <input type="number" id="rmf" name="rmf"><br><br>
+    <label for="rmf">How much is your yearly RMF:</label>
+    <input type="number" id="rmf" name="rmf"><br><br>
 
-  <label for="ssf">How much is your yearly SSF:</label>
-  <input type="number" id="ssf" name="ssf"><br><br>
+    <label for="ssf">How much is your yearly SSF:</label>
+    <input type="number" id="ssf" name="ssf"><br><br>
 
-  <button onclick="calculateDeductions()">Calculate Deductions</button>
+    <button onclick="calculateDeductions()">Calculate Deductions</button>
+    <div id="result"></div>
 
 </form>
 
 <script>
-  function calculateDeductions() {
-    const all_income = parseInt(document.getElementById('yearlyIncome').value);
-    // Get values from input fields
-    const wife = document.querySelector('input[name="wife"]:checked').value;
-    const children = parseInt(document.getElementById('children').value);
-    const birth = parseInt(document.getElementById('birth').value);
-    const parent = parseInt(document.getElementById('parent').value);
-    const disable = document.querySelector('input[name="disable"]:checked').value;
-    const social_sec = parseInt(document.getElementById('social_sec').value);
-    const house_interest = parseInt(document.getElementById('house_interest').value);
-    const life_insurance = parseInt(document.getElementById('life_insurance').value);
-    const health_insurance = parseInt(document.getElementById('health_insurance').value);
-    const parent_insurance = parseInt(document.getElementById('parent_insurance').value);
-    const social_enterprise = parseInt(document.getElementById('social_enterprise').value);
-    const Thai_ESG = parseInt(document.getElementById('Thai_ESG').value);
+    function calculateDeductions() {
+        const all_income = parseInt(document.getElementById('yearlyIncome').value);
+        // Get values from input fields
+        const wife = document.querySelector('select[name="wife"]').value;
+        const children = parseInt(document.getElementById('children').value);
+        const birth = parseInt(document.getElementById('birth').value);
+        const parent = parseInt(document.getElementById('parent').value);
+        const disable = document.querySelector('select[name="disable"]').value;
+        const social_sec = parseInt(document.getElementById('social_sec').value);
+        const house_interest = parseInt(document.getElementById('house_interest').value);
+        const life_insurance = parseInt(document.getElementById('life_insurance').value);
+        const health_insurance = parseInt(document.getElementById('health_insurance').value);
+        const parent_insurance = parseInt(document.getElementById('parent_insurance').value);
+        const social_enterprise = parseInt(document.getElementById('social_enterprise').value);
+        const Thai_ESG = parseInt(document.getElementById('Thai_ESG').value);
 
-    // Calculate deductions
-    const del_wife = wife === "1" ? 60000 : 0;
-    const del_children = children > 0 ? (children >= 2 ? 30000 + (children - 1) * 60000 : 30000) : 0;
-    const del_birth = Math.min(birth, 60000);
-    const del_parent = parent * 30000;
-    const del_disable = disable === "1" ? 60000 : 0;
-    const del_socialsec = Math.min(social_sec, 9000);
-    const del_house = Math.min(house_interest, 100000);
-    const cal_life_insurance = Math.min(life_insurance, 100000);
-    const cal_health_insurance = Math.min(health_insurance, 25000);
-    const cal_insurance = cal_life_insurance + cal_health_insurance;
-    const del_insurance = Math.min(cal_insurance, 100000);
-    const del_parent_insurance = Math.min(parent_insurance, 15000);
-    const del_socialenterprise = Math.min(social_enterprise, 100000);
-    const cal_thai_esg = Math.min(Thai_ESG, all_income * 3 / 10);
-    const del_thai_esg = Math.min(cal_thai_esg, 100000)
+        // Calculate deductions
+        const del_wife = wife === "1" ? 60000 : 0;
+        const del_children = children > 0 ? (children >= 2 ? 30000 + (children - 1) * 60000 : 30000) : 0;
+        const del_birth = Math.min(birth, 60000);
+        const del_parent = parent * 30000;
+        const del_disable = disable === "1" ? 60000 : 0;
+        const del_socialsec = Math.min(social_sec, 9000);
+        const del_house = Math.min(house_interest, 100000);
+        const cal_life_insurance = Math.min(life_insurance, 100000);
+        const cal_health_insurance = Math.min(health_insurance, 25000);
+        const cal_insurance = cal_life_insurance + cal_health_insurance;
+        const del_insurance = Math.min(cal_insurance, 100000);
+        const del_parent_insurance = Math.min(parent_insurance, 15000);
+        const del_socialenterprise = Math.min(social_enterprise, 100000);
+        const cal_thai_esg = Math.min(Thai_ESG, all_income * 3 / 10);
+        const del_thai_esg = Math.min(cal_thai_esg, 100000)
 
-    // Calculate total deductions
-    const totalDeductions = del_wife + del_children + del_birth + del_parent + del_disable + del_socialsec + del_house + del_insurance + del_parent_insurance + del_socialenterprise + del_thai_esg;
+        // Calculate total deductions
+        const totalDeductions = del_wife + del_children + del_birth + del_parent + del_disable + del_socialsec + del_house + del_insurance + del_parent_insurance + del_socialenterprise + del_thai_esg;
 
-    // Display results in a formatted message
-    const resultMessage = `
-Total deductions: ${totalDeductions} baht
---------------------
-Breakdown:
-- Wife: ${del_wife} baht
-- Children: ${del_children} baht
-- Birth: ${del_birth} baht
-- Parent: ${del_parent} baht
-- Disabled: ${del_disable} baht
-- Social Security: ${del_socialsec} baht
-- Housing Interest: ${del_house} baht
-- Insurance: ${del_insurance} baht
-- Parent's insurance: ${del_parent_insurance} baht
-- Social enterprise investment: ${del_socialenterprise} baht
-- Thai ESG: ${del_thai_esg} baht
-`;
-    alert(resultMessage);
-  }
+        // Display results in a formatted message
+        document.getElementById('result').textContent = `Total deductions: ${totalDeductions} baht`;
+    }
+
 </script>
 <!-- kuay -->
 <footer class="text-center fixed-bottom bg-light p-2">
-    <p>&copy; 2023 Thai Income Tax Calculator<br>Make with powered of 🍺,☕ and 🧠</p>
+        <p>&copy; 2023 Thai Income Tax Calculator<br>Make with powered of 🍺,☕ and 🧠</p>
 </footer>
 
 </div>
