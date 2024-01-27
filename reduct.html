@@ -142,14 +142,13 @@
     <label for="ssf">How much is your yearly SSF:</label>
     <input type="number" id="ssf" name="ssf"><br><br>
 
-    <button onclick="calculateDeductions(event)">Calculate Deductions</button>
+    <button onclick="calculateDeductions()">Calculate Deductions</button>
     <div id="result"></div>
 
 </form>
 
 <script>
     function calculateDeductions() {
-        event.preventDefault();
         const all_income = parseInt(document.getElementById('yearlyIncome').value);
         // Get values from input fields
         const wife = document.querySelector('select[name="wife"]').value;
@@ -188,8 +187,9 @@
         // Display results in a formatted message
         document.getElementById('result').textContent = `Total deductions: ${totalDeductions} baht`;
     }
-</script>
 
+</script>
+<!-- kuay -->
 <footer class="text-center fixed-bottom bg-light p-2">
         <p>&copy; 2023 Thai Income Tax Calculator<br>Make with powered of 🍺,☕ and 🧠</p>
 </footer>
